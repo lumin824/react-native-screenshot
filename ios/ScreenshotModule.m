@@ -41,13 +41,13 @@ RCT_EXPORT_METHOD(capture:(RCTPromiseResolveBlock)resolve
     [view.layer renderInContext: context];
     UIImage* image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-
+    
     CFUUIDRef uuidRef = CFUUIDCreate(kCFAllocatorDefault);
     CFStringRef uuidStr = CFUUIDCreateString(kCFAllocatorDefault, uuidRef);
-
+    
     NSString* fileName = [NSString stringWithFormat:@"tmp/%@.png", uuidStr ];
     NSString* filePath = [NSHomeDirectory() stringByAppendingPathComponent:fileName];
-
+    
     CFRelease(uuidStr);
     CFRelease(uuidRef);
 
